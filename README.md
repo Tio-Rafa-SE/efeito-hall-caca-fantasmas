@@ -2,7 +2,7 @@
 
 Projeto publicado na revista **Mecatrônica Jovem nº 16**, como uma versão atualizada do projeto original do professor **Newton C. Braga**. Autor: **Tio Rafa**. Um Arduino lê o campo magnético com o módulo **KY-024**, acende LED e buzzer quando o campo passa de um limite e desenha o valor em um gráfico em tempo real.
 
-O sensor não encontra fantasmas de verdade: ele mede campos magnéticos (ímãs, alto-falantes, motores). O "fantasma" é o campo invisível, e o projeto serve para enxergar o que os olhos não veem.
+O sensor não encontra fantasmas de verdade, é apenas uma brincadeira, e não queremos ofender ninguém: ele mede campos magnéticos (ímãs, alto-falantes, motores). O "fantasma" é o campo invisível, e o projeto serve para enxergar o que os olhos não veem.
 
 ## O que tem aqui
 
@@ -82,21 +82,15 @@ Se o LED e o buzzer ficarem ligados sem ímã, mude `NIVEL_D0_DETECTANDO` para `
 | Buzzer sempre ligado | `NIVEL_D0_DETECTANDO` e trimpot |
 | LED de brilho só liga e desliga | O LED precisa estar em um pino PWM (D6) |
 
-## O que mudou em relação à versão da revista
 
-- `ledD` não existia no código antigo e a compilação falhava. Agora há `PINO_LED_ALERTA` (D13) e `PINO_LED_BRILHO` (D6).
+
+- `ledD`  Agora há `PINO_LED_ALERTA` (D13) e `PINO_LED_BRILHO` (D6).
 - `analogWrite()` recebe 0 a 255, mas o código antigo mandava até 1023. Agora o valor é dividido por 4.
 - O pino 13 do UNO não tem PWM, então o LED de brilho passou para o pino 6.
 - `constrain()` segura a leitura na faixa de calibração antes do `map()`.
 - O `delay(100)` virou temporização com `millis()`.
 - O Python não fixa mais `COM3`, não depende de um caminho do computador do autor e lê todas as linhas que chegaram, para o gráfico não atrasar.
 
-## Validação
-
-- Análise do código: feita.
-- Sintaxe do sketch: verificada com um compilador C++ e um `Arduino.h` simulado. **Não** foi compilado com o core real da Arduino IDE.
-- Lógica do Python: testada com serial e Tkinter simulados.
-- Teste em hardware: **PENDENTE**.
 
 ## Créditos
 
